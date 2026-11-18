@@ -1,0 +1,225 @@
+.триг #scr botCore.BotInZone = false
+юг
+восток
+восток
+юг
+юг
+юг
+восток
+юг
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+восток
+юг
+юг
+юг
+юг
+.триг #scr botCore.BotInZone = true
+#if {$MsdpRoomVnum != 104043} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 104043} {юг}
+#if {$MsdpRoomVnum != 111093} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111093} {запад}
+#if {$MsdpRoomVnum != 111092} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111092} {восток}
+#if {$MsdpRoomVnum != 111093} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111093} {юг}
+#if {$MsdpRoomVnum != 111003} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111003} {юг}
+#if {$MsdpRoomVnum != 111087} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111087} {север}
+#if {$MsdpRoomVnum != 111003} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111003} {восток}
+#if {$MsdpRoomVnum != 111090} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111090} {запад}
+#if {$MsdpRoomVnum != 111003} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111003} {юг}
+#if {$MsdpRoomVnum != 111087} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111087} {юг}
+#if {$MsdpRoomVnum != 111083} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111083} {запад}
+#if {$MsdpRoomVnum != 111082} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111082} {запад}
+#if {$MsdpRoomVnum != 111081} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111081} {юг}
+#if {$MsdpRoomVnum != 111002} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111002} {юг}
+#if {$MsdpRoomVnum != 111034} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111034} {запад}
+#if {$MsdpRoomVnum != 111040} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111040} {юг}
+#if {$MsdpRoomVnum != 111039} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111039} {юг}
+#if {$MsdpRoomVnum != 111036} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111036} {запад}
+#if {$MsdpRoomVnum != 111038} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111038} {юг}
+#if {$MsdpRoomVnum != 111044} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111044} {север}
+#if {$MsdpRoomVnum != 111038} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111038} {юг}
+#if {$MsdpRoomVnum != 111044} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111044} {юг}
+#if {$MsdpRoomVnum != 111055} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111055} {юг}
+#if {$MsdpRoomVnum != 111053} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111053} {юг}
+#if {$MsdpRoomVnum != 111097} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111097} {юг}
+#if {$MsdpRoomVnum != 111096} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111096} {запад}
+#if {$MsdpRoomVnum != 111095} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111095} {восток}
+#if {$MsdpRoomVnum != 111096} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111096} {север}
+#if {$MsdpRoomVnum != 111097} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111097} {север}
+#if {$MsdpRoomVnum != 111053} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111053} {север}
+#if {$MsdpRoomVnum != 111055} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111055} {север}
+#if {$MsdpRoomVnum != 111044} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111044} {север}
+#if {$MsdpRoomVnum != 111038} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111038} {восток}
+#if {$MsdpRoomVnum != 111036} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111036} {восток}
+#if {$MsdpRoomVnum != 111018} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111018} {юг}
+#if {$MsdpRoomVnum != 111019} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111019} {восток}
+#if {$MsdpRoomVnum != 111015} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111015} {запад}
+#if {$MsdpRoomVnum != 111019} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111019} {север}
+#if {$MsdpRoomVnum != 111018} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111018} {запад}
+#if {$MsdpRoomVnum != 111036} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111036} {север}
+#if {$MsdpRoomVnum != 111039} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111039} {север}
+#if {$MsdpRoomVnum != 111040} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111040} {восток}
+#if {$MsdpRoomVnum != 111034} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111034} {север}
+#if {$MsdpRoomVnum != 111002} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111002} {север}
+#if {$MsdpRoomVnum != 111081} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111081} {восток}
+#if {$MsdpRoomVnum != 111082} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111082} {восток}
+#if {$MsdpRoomVnum != 111083} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111083} {восток}
+#if {$MsdpRoomVnum != 111084} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111084} {юг}
+#if {$MsdpRoomVnum != 111005} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111005} {юг}
+#if {$MsdpRoomVnum != 111007} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111007} {север}
+#if {$MsdpRoomVnum != 111005} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111005} {юг}
+#if {$MsdpRoomVnum != 111007} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111007} {восток}
+#if {$MsdpRoomVnum != 111022} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111022} {запад}
+#if {$MsdpRoomVnum != 111007} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111007} {восток}
+#if {$MsdpRoomVnum != 111022} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111022} {восток}
+#if {$MsdpRoomVnum != 111024} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111024} {юг}
+#if {$MsdpRoomVnum != 111025} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111025} {юг}
+#if {$MsdpRoomVnum != 111067} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111067} {запад}
+#if {$MsdpRoomVnum != 111065} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111065} {восток}
+#if {$MsdpRoomVnum != 111067} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111067} {восток}
+#if {$MsdpRoomVnum != 111068} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111068} {восток}
+#if {$MsdpRoomVnum != 111069} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111069} {юг}
+#if {$MsdpRoomVnum != 111070} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111070} {юг}
+#if {$MsdpRoomVnum != 111077} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111077} {север}
+#if {$MsdpRoomVnum != 111070} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111070} {север}
+#if {$MsdpRoomVnum != 111069} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111069} {запад}
+#if {$MsdpRoomVnum != 111068} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111068} {запад}
+#if {$MsdpRoomVnum != 111067} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111067} {запад}
+#if {$MsdpRoomVnum != 111065} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111065} {юг}
+#if {$MsdpRoomVnum != 111064} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111064} {юг}
+#if {$MsdpRoomVnum != 111063} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111063} {запад}
+#if {$MsdpRoomVnum != 111060} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111060} {юг}
+#if {$MsdpRoomVnum != 111058} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111058} {запад}
+#if {$MsdpRoomVnum != 111057} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111057} {север}
+#if {$MsdpRoomVnum != 111056} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111056} {север}
+#if {$MsdpRoomVnum != 111004} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111004} {юг}
+#if {$MsdpRoomVnum != 111056} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111056} {запад}
+#if {$MsdpRoomVnum != 111029} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111029} {запад}
+#if {$MsdpRoomVnum != 111030} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111030} {восток}
+#if {$MsdpRoomVnum != 111029} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111029} {восток}
+#if {$MsdpRoomVnum != 111056} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111056} {юг}
+#if {$MsdpRoomVnum != 111057} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111057} {восток}
+#if {$MsdpRoomVnum != 111058} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111058} {север}
+#if {$MsdpRoomVnum != 111060} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111060} {восток}
+#if {$MsdpRoomVnum != 111063} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111063} {восток}
+#if {$MsdpRoomVnum != 111073} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111073} {восток}
+#if {$MsdpRoomVnum != 111074} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111074} {юг}
+#if {$MsdpRoomVnum != 111078} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111078} {юг}
+#if {$MsdpRoomVnum != 111080} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111080} {запад}
+#if {$MsdpRoomVnum != 111086} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111086} {вниз}
+#if {$MsdpRoomVnum != 111105} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111105} {запад}
+#if {$MsdpRoomVnum != 111106} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111106} {север}
+#if {$MsdpRoomVnum != 111107} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111107} {запад}
+#if {$MsdpRoomVnum != 111109} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111109} {запад}
+#if {$MsdpRoomVnum != 111118} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111118} {запад}
+#if {$MsdpRoomVnum != 111117} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111117} {юг}
+#if {$MsdpRoomVnum != 111116} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111116} {север}
+#if {$MsdpRoomVnum != 111117} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111117} {вверх}
+#if {$MsdpRoomVnum != 111144} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111144} {вверх}
+#if {$MsdpRoomVnum != 111145} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111145} {запад}
+#if {$MsdpRoomVnum != 111152} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111152} {восток}
+#if {$MsdpRoomVnum != 111145} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111145} {север}
+#if {$MsdpRoomVnum != 111146} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111146} {восток}
+#if {$MsdpRoomVnum != 111147} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111147} {запад}
+#if {$MsdpRoomVnum != 111146} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111146} {север}
+#if {$MsdpRoomVnum != 111154} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111154} {север}
+#if {$MsdpRoomVnum != 111155} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111155} {восток}
+#if {$MsdpRoomVnum != 111156} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111156} {запад}
+#if {$MsdpRoomVnum != 111155} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111155} {юг}
+#if {$MsdpRoomVnum != 111154} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111154} {юг}
+#if {$MsdpRoomVnum != 111146} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111146} {юг}
+#if {$MsdpRoomVnum != 111145} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111145} {вниз}
+#if {$MsdpRoomVnum != 111144} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111144} {вниз}
+#if {$MsdpRoomVnum != 111117} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111117} {юг}
+#if {$MsdpRoomVnum != 111116} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111116} {запад}
+#if {$MsdpRoomVnum != 111115} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111115} {запад}
+#if {$MsdpRoomVnum != 111112} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111112} {запад}
+#if {$MsdpRoomVnum != 111111} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111111} {запад}
+#if {$MsdpRoomVnum != 111101} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111101} {север}
+#if {$MsdpRoomVnum != 111102} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111102} {запад}
+#if {$MsdpRoomVnum != 111099} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111099} {север}
+#if {$MsdpRoomVnum != 111100} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111100} {юг}
+#if {$MsdpRoomVnum != 111099} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111099} {запад}
+#if {$MsdpRoomVnum != 111098} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111098} {вверх}
+#if {$MsdpRoomVnum != 111095} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111095} {восток}
+#if {$MsdpRoomVnum != 111096} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111096} {север}
+#if {$MsdpRoomVnum != 111097} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111097} {север}
+#if {$MsdpRoomVnum != 111053} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111053} {восток}
+#if {$MsdpRoomVnum != 111032} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111032} {восток}
+#if {$MsdpRoomVnum != 111030} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111030} {восток}
+#if {$MsdpRoomVnum != 111029} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111029} {восток}
+#if {$MsdpRoomVnum != 111056} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111056} {юг}
+#if {$MsdpRoomVnum != 111057} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111057} {восток}
+#if {$MsdpRoomVnum != 111058} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111058} {север}
+#if {$MsdpRoomVnum != 111060} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111060} {восток}
+#if {$MsdpRoomVnum != 111063} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111063} {восток}
+#if {$MsdpRoomVnum != 111073} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111073} {восток}
+#if {$MsdpRoomVnum != 111074} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111074} {юг}
+#if {$MsdpRoomVnum != 111078} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111078} {юг}
+#if {$MsdpRoomVnum != 111080} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111080} {запад}
+#if {$MsdpRoomVnum != 111086} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111086} {восток}
+#if {$MsdpRoomVnum != 111080} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111080} {север}
+#if {$MsdpRoomVnum != 111078} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111078} {север}
+#if {$MsdpRoomVnum != 111074} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111074} {восток}
+#if {$MsdpRoomVnum != 111012} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111012} {вверх}
+#if {$MsdpRoomVnum != 111011} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111011} {север}
+#if {$MsdpRoomVnum != 111010} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111010} {север}
+#if {$MsdpRoomVnum != 111009} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111009} {вниз}
+#if {$MsdpRoomVnum != 111077} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111077} {север}
+#if {$MsdpRoomVnum != 111070} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111070} {север}
+#if {$MsdpRoomVnum != 111069} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111069} {запад}
+#if {$MsdpRoomVnum != 111068} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111068} {запад}
+#if {$MsdpRoomVnum != 111067} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111067} {север}
+#if {$MsdpRoomVnum != 111025} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111025} {север}
+#if {$MsdpRoomVnum != 111024} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111024} {запад}
+#if {$MsdpRoomVnum != 111022} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111022} {запад}
+#if {$MsdpRoomVnum != 111007} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111007} {север}
+#if {$MsdpRoomVnum != 111005} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111005} {север}
+#if {$MsdpRoomVnum != 111084} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111084} {запад}
+#if {$MsdpRoomVnum != 111083} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111083} {север}
+#if {$MsdpRoomVnum != 111087} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111087} {север}
+#if {$MsdpRoomVnum != 111003} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111003} {север}
+#if {$MsdpRoomVnum != 111093} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 111093} {север}
+.триг #scr botCore.BotInZone = false
+запад
+север
+север
+север
+север
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+запад
+север
+север
+.триг путь склад
+.пауза 150

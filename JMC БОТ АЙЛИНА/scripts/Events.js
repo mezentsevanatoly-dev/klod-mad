@@ -1,0 +1,181 @@
+// дефайн на гаг эвента
+var GAG_EVENT = "=GAG=sad#!)VFM<ISH(FDA&Hs";
+
+// обработка глобальных событий
+function onInput()
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onInput != null) {
+			jmc.event = modules[i].onInput( jmc.event );
+		}
+	}
+}
+
+function onIncoming()
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onIncoming != null) {
+			jmc.event = modules[i].onIncoming( jmc.event );
+		}
+	}
+	if (jmc.event==GAG_EVENT) jmc.event=null;
+}
+
+function onTimer()
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onTimer != null) {
+			modules[i].onTimer( jmc.event );
+		}
+	}
+}
+
+// обработка событий mud
+
+
+// обработка комнаты
+function onRoom( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onRoom != null) {
+			sTextLine = modules[i].onRoom( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+function onRoomItem( sTextLine , numInRoom )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onRoomItem != null) {
+			sTextLine = modules[i].onRoomItem( sTextLine , numInRoom);
+		}
+	}
+	return sTextLine;
+}
+
+function onRoomMob( sTextLine , numInRoom )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onRoomMob != null) {
+			sTextLine = modules[i].onRoomMob( sTextLine, numInRoom);
+		}
+	}
+	return sTextLine;
+}
+
+function onRoomPlayer( sTextLine , numInRoom )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onRoomPlayer != null) {
+			sTextLine = modules[i].onRoomPlayer( sTextLine, numInRoom);
+		}
+	}
+	return sTextLine;
+}
+
+function onRoomGroupPlayer( sTextLine , numInRoom )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onRoomGroupPlayer != null) {
+			sTextLine = modules[i].onRoomGroupPlayer( sTextLine, numInRoom);
+		}
+	}
+	return sTextLine;
+}
+
+
+// обработчики входа в комнату
+
+function onArrivePlayer( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onArrivePlayer != null) {
+			sTextLine = modules[i].onArrivePlayer( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+function onArriveMob( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onArriveMob != null) {
+			sTextLine = modules[i].onArriveMob( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+// выход из комнаты
+
+function onLeavePlayer( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onLeavePlayer != null) {
+			sTextLine = modules[i].onLeavePlayer( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+function onLeaveMob( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onLeaveMob != null) {
+			sTextLine = modules[i].onLeaveMob( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+// убегание
+function onFlee( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onFlee != null) {
+			sTextLine = modules[i].onFlee( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+// удар
+function onHit( sTextLine )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onHit != null) {
+			sTextLine = modules[i].onHit( sTextLine );
+		}
+	}
+	return sTextLine;
+}
+
+// осмотр
+function onLookMob( sTextLine , lookLineType, rxresult )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onLookMob != null) {
+			sTextLine = modules[i].onLookMob( sTextLine , lookLineType , rxresult );
+		}
+	}
+	return sTextLine;
+}
+
+// обработчики строки статуса
+
+function onStatus( sTextLine, isRoom  )
+{
+	for (var i=0; i < modules.length; i++) {
+		if (modules[i].onStatus != null) {
+			sTextLine = modules[i].onStatus( sTextLine, isRoom );
+		}
+	}
+	return sTextLine;
+}
+
+
+// регистрация глобальных событий
+jmc.RegisterHandler("Input","onInput()");
+jmc.RegisterHandler("Incoming","onIncoming()");
+jmc.RegisterHandler("Timer","onTimer()");

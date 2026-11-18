@@ -1,0 +1,8 @@
+.триг #scr botCore.BotInZone = false
+.триг путь варвар
+.пауза 100
+.триг #if {$MsdpRoomVnum != 115066} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115066} {уч доп 20}
+.триг #if {$MsdpRoomVnum != 115066} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115066} {уч атак 20}
+.триг #if {$MsdpRoomVnum != 115066} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115066} {уч дуби 20}
+.триг путь склад
+.пауза 100

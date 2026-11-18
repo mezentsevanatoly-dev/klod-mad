@@ -1,0 +1,15 @@
+#if {$MsdpRoomVnum ==511004} {#var SumReset 0}
+#if {$MsdpRoomVnum ==511004} {восток}
+#if {$MsdpRoomVnum ==511021} {юг}
+#if {$MsdpRoomVnum ==511081} {дать статуя вдова}
+#if {$MsdpRoomVnum ==511081} {запад}
+#if {$MsdpRoomVnum ==511053} {запад}
+#if {$MsdpRoomVnum ==511054} {взять останки}
+#if {$MsdpRoomVnum ==511054} {восток}
+#if {$MsdpRoomVnum ==511053} {восток}
+#if {$MsdpRoomVnum ==511081} {дать останки вдова}
+#if {$MsdpRoomVnum ==511081} {запад}
+#if {$MsdpRoomVnum ==511053} {запад}
+#if {$MsdpRoomVnum ==511054} {север}
+#if {$MsdpRoomVnum ==511055} {установить статую}
+#if {$MsdpRoomVnum ==511055} {смотреть}

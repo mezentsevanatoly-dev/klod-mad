@@ -1,0 +1,19 @@
+# личное и мусор — не коммитить
+аккаунт_*
+пароль_тест.txt
+профиль_*
+экип_*
+реск_*
+presence_*
+*.log
+*.bak
+*.bak2
+*.bak_*
+__pycache__/
+*.pyc
+dist/*.zip
+*.zip
+*.rar
+*.7z
+Sow.exe
+Kernel.dll

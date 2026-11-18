@@ -1,0 +1,28 @@
+#if {$MsdpRoomVnum ==0} {#var SumReset 0}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {восток}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {запад}
+#if {$MsdpRoomVnum ==0} {запад}
+#if {$MsdpRoomVnum ==0} {север}
+#if {$MsdpRoomVnum ==0} {восток}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+.триг ждать 20
+.триг г справедливости
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {запад}
+#if {$MsdpRoomVnum ==0} {вниз}
+#if {$MsdpRoomVnum ==0} {юг;##loop {1,10:125}{вст;€р х}}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {запад}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {юг}
+#if {$MsdpRoomVnum ==0} {восток}
+#if {$MsdpRoomVnum ==0} {юг}

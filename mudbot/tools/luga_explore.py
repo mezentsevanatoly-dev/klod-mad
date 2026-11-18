@@ -1,0 +1,363 @@
+# -*- coding: utf-8 -*-
+"""Эксплор зоны «Заливные луга» Айлиной через жабу (JMC БОТ АЙЛИНА). Запуск: python -X utf8 -u tools/luga_explore.py
+Обходит зону вглубь (DFS) по реальным клеткам (vnum из MSDP), в каждой клетке: смотреть -> название, описание, выходы, строки мобов;
+для каждого моба: смотреть N. -> карточка (имя, уровень, профа, хиты, навыки, описание); по одному убивает каждый вид -> опыт.
+Команды идут через tools/jmc.py (окно жабы Айлины), результат читается из JMC БОТ АЙЛИНА\\claude_game.log.
+Выход: mudbot/data/recon/луга_айлина/explore.json (+ explore.log). Остановка: файл tools/luga_explore.stop."""
+import os, sys, re, time, json
+
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # ...\Клод мад
+JMC_DIR = os.path.join(BASE, "JMC БОТ АЙЛИНА")
+os.environ["JMC_TARGET"] = JMC_DIR
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import jmc  # noqa: E402
+
+LOG = os.path.join(JMC_DIR, "claude_game.log")
+OUTDIR = os.path.join(BASE, "mudbot", "data", "recon", "луга_айлина")
+os.makedirs(OUTDIR, exist_ok=True)
+JSON_OUT = os.path.join(OUTDIR, "explore.json")
+TXT_LOG = os.path.join(OUTDIR, "explore.log")
+STOP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "luga_explore.stop")
+
+WORD = {"N": "север", "S": "юг", "E": "восток", "W": "запад", "U": "вверх", "D": "вниз"}
+BACK = {"N": "S", "S": "N", "E": "W", "W": "E", "U": "D", "D": "U"}
+ENTRY = 137220                      # клетка перед зоной (подход 11esw17s от ЦП 100009)
+ZONE = range(140000, 140300)        # vnum клеток луга
+PROMPT = re.compile(r"^\d+H \d+M \d+V")
+BATTLE = re.compile(r"\[[^\]]+:[^\]]+\] \[[^\]]+:[^\]]+\]")
+OBJ = re.compile(r"(лежит|лежат|валяется|валяются)\s+(тут|здесь)")
+TS = re.compile(r"^\d\d:\d\d:\d\d ?")
+
+S = {"cells": {}, "cards": {}, "exp": {}, "line2name": {}, "moves": [], "blocked": [], "out_edges": [], "notes": []}
+tried = set()
+
+
+def say(*a):
+    s = time.strftime("%H:%M:%S ") + " ".join(str(x) for x in a)
+    print(s, flush=True)
+    with open(TXT_LOG, "a", encoding="utf-8") as f:
+        f.write(s + "\n")
+
+
+def save():
+    with open(JSON_OUT, "w", encoding="utf-8") as f:
+        json.dump(S, f, ensure_ascii=False, indent=1)
+
+
+def read_from(pos):
+    with open(LOG, "rb") as f:
+        f.seek(pos)
+        data = f.read()
+    return [TS.sub("", x.rstrip("\r")) for x in data.decode("cp1251", "replace").split("\n")]
+
+
+def send(cmd, timeout=10.0, settle=0.25):
+    """Набрать команду, вернуть строки ответа игры (между эхом >> и приглашением)."""
+    pos = os.path.getsize(LOG)
+    jmc.type_line(cmd, force=True)
+    t0 = time.time()
+    last_change = time.time(); last_size = pos
+    while time.time() - t0 < timeout:
+        time.sleep(0.12)
+        size = os.path.getsize(LOG)
+        if size != last_size:
+            last_size = size; last_change = time.time()
+        lines = read_from(pos)
+        echo = None
+        for i, l in enumerate(lines):
+            if l.startswith(">> "):
+                echo = i; break
+        if echo is None:
+            continue
+        for j in range(echo + 1, len(lines)):
+            if PROMPT.match(lines[j]) and time.time() - last_change > settle:
+                return lines[echo + 1:j], lines[j]
+    lines = read_from(pos)
+    return lines, ""
+
+
+def getvn(retries=3):
+    for _ in range(retries):
+        pos = os.path.getsize(LOG)
+        jmc.type_line("#scr ClaudeLog.note($MsdpRoomVnum)", force=True)
+        t0 = time.time()
+        while time.time() - t0 < 4:
+            time.sleep(0.12)
+            for l in read_from(pos):
+                m = re.match(r"^## (\d+)\s*$", l)
+                if m:
+                    return int(m.group(1))
+    return None
+
+
+def in_battle(prompt):
+    return bool(prompt and BATTLE.search(prompt))
+
+
+def wait_peace(maxs=60):
+    t0 = time.time(); poked = 0
+    while time.time() - t0 < maxs:
+        _, pr = send("смотреть", 6)
+        if not in_battle(pr):
+            return True
+        if time.time() - t0 > 12 and poked < 4:
+            send("убить 2.", 5); poked += 1
+        time.sleep(2)
+    return False
+
+
+def parse_room(lines):
+    """Название, описание, выходы, строки существ/предметов из ответа на «смотреть»."""
+    ls = [l for l in lines if l.strip() != ""]
+    ex_i = next((i for i, l in enumerate(ls) if re.match(r"^\[ ?Exits:", l)), None)
+    if ex_i is None:
+        return None
+    name = ls[0].strip()
+    desc = " ".join(x.strip() for x in ls[1:ex_i])
+    m = re.match(r"^\[ ?Exits:\s*(.*?)\s*\]", ls[ex_i])
+    exits = re.findall(r"[NESWUD]", m.group(1)) if m else []
+    rest = ls[ex_i + 1:]
+    return name, desc, exits, rest
+
+
+def expand(rest):
+    """Строки существ (без предметов) с учётом множителя [N]."""
+    ents = []
+    for l in rest:
+        if OBJ.search(l):
+            continue
+        m = re.search(r"\s\[(\d+)\]\s*$", l)
+        n = int(m.group(1)) if m else 1
+        base = re.sub(r"\s\[\d+\]\s*$", "", l).strip()
+        ents += [base] * n
+    return ents
+
+
+def short_line(l):
+    """Описание для csv: первое предложение + пробел (как в areas/*_mob.csv)."""
+    l = re.sub(r"\s*\.\.\..*$", "", l).strip()
+    return l + " "
+
+
+def parse_card(lines):
+    ls = [l for l in lines if l.strip() != ""]
+    if not ls or "Вы не видите" in " ".join(ls[:2]):
+        return None
+    m = re.match(r"^(.*?) \[уровень (\d+)\], (.+)$", ls[0].strip())
+    if not m:
+        return None
+    card = {"name": m.group(1).strip(), "level": int(m.group(2)), "class": m.group(3).strip(), "hp": "", "mp": "", "skills": "", "desc": "", "kind": "", "state": ""}
+    d = []
+    for l in ls[1:]:
+        if l.startswith("Хиты:"):
+            mm = re.match(r"Хиты: (\d+)/(\d+), мана: (\d+)/(\d+)", l)
+            if mm:
+                card["hp"], card["mp"] = mm.group(2), mm.group(4)
+        elif l.startswith("Навыки:"):
+            card["skills"] = re.sub(r"\s+", " ", l[len("Навыки:"):]).strip()
+        elif l.startswith("Вы видите перед собой"):
+            card["kind"] = l.replace("Вы видите перед собой", "").strip(" .")
+        elif re.search(r" в (превосходном|отличном|хорошем|прекрасном|великолепном|[а-я]+) состоянии\.?$", l):
+            card["state"] = l.strip()
+        else:
+            d.append(l.strip())
+    card["desc"] = " ".join(d)
+    return card
+
+
+def observe(vn):
+    """Осмотр клетки; новые виды мобов -> карточки + убийство одного для опыта."""
+    lines, pr = send("смотреть", 8)
+    room = parse_room(lines)
+    if not room:
+        lines, pr = send("смотреть", 8)
+        room = parse_room(lines)
+    if not room:
+        say("не разобрал комнату", vn, lines[:3])
+        return None
+    name, desc, exits, rest = room
+    ents = expand(rest)
+    cell = S["cells"].get(str(vn))
+    if cell is None:
+        cell = {"vnum": vn, "name": name, "desc": desc, "exits": exits, "edges": {}, "mobs_lines": [], "mobs": []}
+        S["cells"][str(vn)] = cell
+    cell["mobs_lines"] = ents
+    names = []
+    unknown = [e for e in ents if short_line(e) not in S["line2name"]]
+    if ents and (unknown or True):
+        idx = 2
+        for e in ents:
+            if short_line(e) in S["line2name"] and not unknown:
+                names.append(S["line2name"][short_line(e)]); idx += 1; continue
+            out, _ = send("смотреть %d." % idx, 6)
+            card = parse_card(out)
+            if card is None:
+                break
+            S["cards"].setdefault(card["name"], card)
+            S["line2name"].setdefault(short_line(e), card["name"])
+            names.append(card["name"])
+            idx += 1
+    cell["mobs"] = names
+    # убить по одному каждый новый вид
+    for i, nm in enumerate(names):
+        if nm in S["exp"]:
+            continue
+        pos = os.path.getsize(LOG)
+        send("убить %d." % (i + 2), 8)
+        t0 = time.time(); got = None
+        while time.time() - t0 < 40:
+            time.sleep(1.5)
+            txt = "\n".join(read_from(pos))
+            m = re.search(r"получили ([\d ]+?) (?:единиц|очк)\S* опыта", txt)
+            if m:
+                got = int(m.group(1).replace(" ", "")); break
+            if re.search(r"Вы не видите|Кого вы хотите|Вы не можете", txt) and time.time() - t0 > 4:
+                break
+        S["exp"][nm] = got if got is not None else -1
+        say("убит", nm, "опыт", got)
+        wait_peace(30)
+        ents2 = None
+        break    # после боя список изменился; остальные виды — в других клетках/следующих заходах
+    return cell
+
+
+def move(d, expect_from):
+    """Один шаг; вернёт vnum клетки после шага (или None)."""
+    for attempt in range(4):
+        lines, pr = send(WORD[d], 8)
+        txt = " ".join(lines)
+        if "Не получится" in txt or in_battle(pr):
+            wait_peace(60)
+            continue
+        if "слишком устали" in txt:
+            time.sleep(3); continue
+        vn = getvn()
+        if vn is not None:
+            S["moves"].append([expect_from, d, vn])
+            return vn
+    return getvn()
+
+
+def go_path(cmds):
+    for c in cmds:
+        send(c, 8)
+    time.sleep(0.5)
+
+
+_DB = None
+
+
+def db_exits(vn):
+    """Подсказка из game.db (rooms): {направление: vnum}. Не истина, только чтобы не ходить за зону зря."""
+    global _DB
+    try:
+        import sqlite3
+        if _DB is None:
+            _DB = sqlite3.connect(os.path.join(BASE, "mudbot", "data", "game.db"))
+        r = _DB.execute("select exits from rooms where vnum=?", (str(vn),)).fetchone()
+        return {k: int(v) for k, v in json.loads(r[0]).items()} if r else {}
+    except Exception:
+        return {}
+
+
+def explore(vn, depth=0):
+    if os.path.exists(STOP):
+        raise KeyboardInterrupt
+    cell = observe(vn)
+    if cell is None:
+        return
+    save()
+    hint = db_exits(vn)
+    for d in cell["exits"]:
+        if (vn, d) in tried:
+            continue
+        tried.add((vn, d))
+        h = hint.get(d)
+        if h is not None and h not in ZONE:                 # по базе выход ведёт за зону: не идём
+            S["out_edges"].append([vn, d, h]); cell["edges"][d] = h; continue
+        if vn == ENTRY and h is None:                       # у входа без подсказки базы не гуляем
+            continue
+        nv = move(d, vn)
+        if nv is None:
+            say("не удалось узнать vnum после", d, "из", vn); continue
+        if nv == vn:
+            S["blocked"].append([vn, d]); continue
+        cell["edges"][d] = nv
+        if nv not in ZONE:
+            S["out_edges"].append([vn, d, nv])
+            back = move(BACK[d], nv)
+            if back != vn:
+                say("после выхода за зону вернулся в", back, "ждал", vn)
+            continue
+        if str(nv) in S["cells"]:
+            back = move(BACK[d], nv)
+            if back != vn:
+                say("возврат дал", back, "ждал", vn); resync(vn, back)
+            continue
+        say("клетка", nv, "глубина", depth + 1, "всего клеток", len(S["cells"]) + 1)
+        explore(nv, depth + 1)
+        back = move(BACK[d], nv)
+        if back != vn:
+            say("возврат дал", back, "ждал", vn); resync(vn, back)
+
+
+def resync(target, cur):
+    """Короткий поиск пути по известным рёбрам от cur к target."""
+    import collections
+    if cur is None:
+        return
+    graph = {}
+    for k, c in S["cells"].items():
+        for d, n in c.get("edges", {}).items():
+            graph.setdefault(int(k), {})[d] = n
+            graph.setdefault(n, {})[BACK[d]] = int(k)
+    prev = {cur: None}; q = collections.deque([cur])
+    while q:
+        v = q.popleft()
+        if v == target:
+            break
+        for d, n in graph.get(v, {}).items():
+            if n not in prev:
+                prev[n] = (v, d); q.append(n)
+    if target not in prev:
+        say("resync: пути нет", cur, "->", target); return
+    path = []; v = target
+    while prev[v]:
+        v, d = prev[v][0], prev[v][1]; path.append(d)
+    for d in reversed(path):
+        move(d, 0)
+
+
+def main():
+    if os.path.exists(STOP):
+        os.remove(STOP)
+    say("эксплор луга запущен; лог игры:", LOG)
+    vn = getvn()
+    say("сейчас в клетке", vn)
+    def arrive(target, tries=20):
+        for _ in range(tries):
+            time.sleep(3)
+            v = getvn()
+            if v == target:
+                return v
+        return getvn()
+    if vn != ENTRY and vn not in ZONE:
+        if vn != 100009:
+            say("иду со склада в ЦП"); go_path(["юг;восток;восток;юг;юг;юг;юг"])
+            vn = arrive(100009); say("после пути в ЦП:", vn)
+        say("иду к входу в луга (11esw17s)")
+        go_path(["восток;" * 11 + "юг;запад;" + "юг;" * 17])
+        vn = arrive(ENTRY); say("у входа:", vn)
+    if vn not in (ENTRY,) and vn not in ZONE:
+        say("не у входа в зону:", vn, "- стоп"); return
+    try:
+        explore(vn)
+    except KeyboardInterrupt:
+        say("остановлено по стоп-файлу")
+    save()
+    say("ГОТОВО. клеток:", len(S["cells"]), "видов мобов:", len(S["cards"]), "опыт по видам:", len(S["exp"]))
+
+
+if __name__ == "__main__":
+    sys.setrecursionlimit(5000)
+    main()

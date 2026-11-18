@@ -1,0 +1,17 @@
+#if {$MsdpRoomVnum ==0} {#var SumReset 0}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр восток}
+#if {$MsdpRoomVnum ==0} {подкр запад}
+#if {$MsdpRoomVnum ==0} {подкр запад}
+#if {$MsdpRoomVnum ==0} {подкр запад}
+#if {$MsdpRoomVnum ==0} {откр дв;север}
+#if {$MsdpRoomVnum ==0} {откр дв;юг}
+#if {$MsdpRoomVnum ==0} {откр 2дв;юг}
+#if {$MsdpRoomVnum ==0} {откр дв;север}
+#if {$MsdpRoomVnum ==0} {восток}
+#if {$MsdpRoomVnum ==0} {восток}
+#if {$MsdpRoomVnum ==0} {восток}

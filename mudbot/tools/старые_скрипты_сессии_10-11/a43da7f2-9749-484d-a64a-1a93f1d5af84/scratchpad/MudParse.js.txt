@@ -1,0 +1,373 @@
+﻿/*
+	обработка потока мада
+*/
+
+// класс игрока
+
+var player = {
+	name: "Пусто",
+	hp: 0,
+	mp: 0,
+	vp: 0,
+	maxhp: 0,
+	maxmp: 0,
+	maxvp: 0,
+	xexp: "",
+	gold: 0,
+	exits: "",
+	isBattle: false,
+	battleTargName: "",
+	bash: 0,
+	hold: 1,
+	roomname: ""
+}
+
+function Mob(mobName){
+	this.name = mobName;
+	this.nameInLook = "";
+	this.hp = 0;
+	this.mp = 0;
+	this.vp = 0;
+	this.maxhp = 0;
+	this.maxmp = 0;
+	this.maxvp = 0;
+	this.exp = 0;
+	this.gold = 0;
+	this.level = 0;
+	this.rooms = new Array();
+	this.isAgro = false;
+	this.isAssist = false;
+	this.skill = "";
+	this.prof = "";
+	this.race = "";
+	this.flags = ""; 
+}
+
+function MudParseModule(){
+	
+	this.moduleName 		= "StatusParseModule";
+	this.firstLine			= false;
+	
+	this.roomLook			= false;
+	this.roomLineType		= 0; // 1 итемы 2 мобы 3плееры
+	this.numInRoom 			= 0; // номер моба
+	
+	this.lookPacket			= false;
+ 	
+	// Текущий формат статуса: %H %M %V %X %CC%W Вых%A%E 
+	// 556H 205M 160V 672MX 1309C Вых:ВЮЗ>
+	// перенести патом формат статуса в <profile_name>.js
+	var promptStatus 		=  /^(\d+)H (\d+)M (\d+)V (\d+)[kM]*X (\d+)C Вых:([СЮЗВ^v\(\)]*)>/;
+	var promptStatusBattle 	=  /^(\d+)H (\d+)M (\d+)V (\d+)[kM]*X (\d+)C \[([А-Яа-я\- ]+):([А-Яа-я\. ]+)\] \[([А-Яа-я\- ]+):([А-Яа-я\. ]+)\] Вых:([СЮЗВ^v\(\)]*)>/;
+	
+	// обработка исходящих сообщений из jmc ( alias )
+	this.onInput = function( sTextLine )
+	{
+		sCommands = sTextLine.split(" ");
+		if (sCommands[0] == "/?" && sCommands[1] == "StatusParseModule")
+		{
+			jmc.showme ( color(1,36)+"[Справка]: "+ color(0,0)+ "/? " + this.moduleName);
+			return;
+		}
+		return sTextLine;
+	}
+	
+	// обработка входящих в jmc строк ( action )
+	this.onIncoming = function( sTextLine )
+	{
+		sLine=rmcolor(sTextLine); // убираем цвет
+		//sLine=sTextLine;
+		
+		if (rx(sLine,/^Путь к комнате (.+): (.+)$/)){
+			WayGo = result[2];
+			WayGo = WayGo.replace(/ /g,";");
+			//jmc.showme (WayGo);
+			//jmc.showme ("Вижу путь" + result[2]);
+			jmc.send(WayGo);
+			botCore.wait(500);
+			jmc.send("гг ждать 1");
+			return sTextLine;
+		}	
+		
+		
+		
+		//Страж ущелья замер на месте, не в силах шевельнуться!
+		if (rx(sLine,/^([А-Яа-я\ \-]+) заме(р|рла|рло|рли) на месте, не в силах шевельнуться!$/)){
+			return sTextLine;
+		}	
+		//Вы хотите есть.
+		//Вы хотите пить.
+		if (rx(sLine,/^Вы хотите (есть|пить).$/)){
+			return sTextLine;
+		}
+		
+		//Вы прекратили следовать за Чаго.
+		if (rx(sLine,/^Вы прекратили следовать за ([А-Яа-я\ ]+).$/)){
+			return sTextLine;
+		}
+		//Ваше сознание прояснилось, вы успокоились.
+		if (rx(sLine,/^Ваше сознание прояснилось, вы успокоились.$/)){
+			return sTextLine;
+		}
+		
+		//Биржа: Лот #2773 - 'жало дикой пчелы' таймер: 10383, цена: 360
+		if (rx(sLine,/^Биржа: Лот #([0-9]+) \- \'([А-Яа-я\ \-\,\(\)]+)\' таймер: ([0-9]+), цена: ([0-9]+)$/)){
+			return sTextLine;
+		}
+		// Биржа: Лот #2534 - 'лиана' продан за 1300 монет.
+		if (rx(sLine,/^Биржа: Лот #([0-9]+) \- \'([А-Яа-я\ \-\,\(\)]+)\' продан за ([0-9]+) монет\.$/)){
+			return sTextLine;
+		}
+		
+		// Биржа: Лот #1474 - 'шлем с отверстием для рогов' снят с продажи.
+		if (rx(sLine,/^Биржа: Лот #([0-9]+) \- \'([А-Яа-я\ \-\,\(\)]+)\' (.*)$/)){
+			return sTextLine;
+		}
+		
+		// дикей фигни
+		if (rx(sLine,/^([А-Яа-я\ \-]+) рассыпа(лся|лась|лось|лись) в пыль.$/)){
+			return sTextLine;
+		}
+		// Вход в комнату
+		if (rx(sLine,/^([А-Яа-я\ \-]+) при(лете|ше|ш|полз|бежа|скака|прыга|)(|л|ла|ло|ли) (с востока|с севера|с запада|с юга|сверху|снизу).$/)){
+			//jmc.showme("ВХОД");
+			return sTextLine;
+		}
+		
+		// Выход из комнату
+		if (rx(sLine,/^([А-Яа-я\ \-]+) у(лете|ше|ш|полз|бежа|скака|прыга|)(|л|ла|ло|ли) (на восток|на север|на запад|на юг|наверх|вниз).$/)){
+			//jmc.showme("Выход");
+			return sTextLine;
+		}
+		
+		// телега
+		if (rx(sLine,/^([А-Яа-я\ \-]+) (поехала|направился) (на восток|на север|на запад|на юг|наверх|вниз).$/)){
+			//jmc.showme("Выход");
+			return sTextLine;
+		}
+		
+		// счет разбор
+		// максхп Вы имеете 291(291) здоровья, 132(132) маны, 100(100) энергии.
+		if (rx(sLine,/^Вы имеете [0-9]+\(([0-9]+)\) здоровья, [0-9]+\(([0-9]+)\) маны, [0-9]+\(([0-9]+)\) энергии.$/)){
+			player.maxhp = result[1];
+			player.maxmp = result[2];
+			player.maxvp = result[3];
+			return sTextLine;
+		}
+		
+		// публик мессага
+		//Дианора сказала всем: "камень подложи"
+		if (rx(sLine,/^([А-Я][а-я]+) сказа(л|ла|ло|ли) всем: "(.*)"/)){
+			return sTextLine;
+		}
+		
+		//Аукцион: Новый лот #1 - 'эликсир страшной боли' таймер: 24833, начальная ставка 1 монета.
+		//Аукцион: Лот #1 - 'эликсир страшной боли' выставляется первый раз (ставок нет).
+		// заглушка аука
+		if (rx(sLine,/^Аукцион\: Лот \#(.*)/)){
+			return sTextLine;
+		}
+		// приват мессага
+		if (rx(sLine,/^([А-Я][а-я]+) сказа(л|ла|ло|ли) (\*{0,1}[А-Я][а-я]+|вам): "(.*)"/)){
+			return sTextLine;
+		}
+		
+		// групп мессага
+		if (rx(sLine,/^([А-Яа-я]+|Кто-то) сказа(л|ла|ло|ли) группе: "(.*)"$/)){
+			return sTextLine;
+		}
+		
+		// клан мессаги
+		// [      Союзники]: Арамир: чонить
+		if (rx(sLine,/^\[([А-Яа-я ]{14})\]: ([А-Я][а-я]*): (.*)$/)){
+			return sTextLine;
+			//return ; // при раскоменте, мессаги не выводяться в основном окне! %)						
+		}
+
+		// разбор осмотра моба
+		
+		/*
+		Хомячок [уровень 1], Воин
+		Особенности: [Мирный]
+		Хиты: 10/10, мана: 10/10
+		Навыки: -
+		   Смешной толстун с набитыми запасами щеками, нервно ползает по полу, пытаясь
+		спрятаться.
+		Вы видите перед собой животное.
+		Хомячок в превосходном состоянии.
+		*/
+		
+		// начало осмотра
+		if (rx(sLine,/^([А-Яа-я \.\-\,]+) \[уровень ([0-9]+)\], ([А-Яа-я\ ]+)$/)){
+			this.lookPacket = true;
+			sTextLine = onLookMob(sTextLine, 0 ,result);
+			return sTextLine;
+		}
+		
+		if (rx(sLine,/^([А-Яа-я \.\-\,]+) \[уровень ([0-9]+)\]$/)){
+			this.lookPacket = true;
+			sTextLine = onLookMob(sTextLine, 0 ,result);
+			return sTextLine;
+		}
+		
+		// конец осмотра
+		if (rx(sTextLine,/^([А-Яа-я \.\-\,]+) в ([а-я ]+) состоянии.$/) && this.lookPacket){
+			this.lookPacket = false;
+			sTextLine = onLookMob(sTextLine, 1 ,result);
+			return sTextLine;
+		}
+		
+		// хиты моба
+		if (rx(sLine,/^Хиты: (\d+)\/(\d+), мана: (\d+)\/(\d+)$/) && this.lookPacket){
+			sTextLine = onLookMob(sTextLine, 2 ,result);
+			return sTextLine;
+		}
+		
+		// Навыки
+		if (rx(sLine,/^Навыки: (-|[а-я ]+)$/) && this.lookPacket){
+			sTextLine = onLookMob(sTextLine, 3 ,result);
+			return sTextLine;
+		}
+		// мирный моб
+		//Особенности: [Мирный] [Кладовщик]
+		if (rx(sLine,/^Особенности: ([А-Яа-я \[\]]+)$/) && this.lookPacket){
+			sTextLine =onLookMob(sTextLine, 7 ,result);
+			return sTextLine;
+		}
+		
+		// раса
+		//Вы видите перед собой животное.
+		if (rx(sLine,/^Вы видите перед собой ([а-я ]+)\./) && this.lookPacket){
+			sTextLine =onLookMob(sTextLine, 4, result);
+			return sTextLine;
+		}
+		// Описание
+		if (rx(sLine,/^.*$/) && this.lookPacket){
+			sTextLine =onLookMob(sTextLine, 5, result);
+			return sTextLine;
+		}
+		
+		// разбор названия комнаты
+		if ( (rx(sTextLine,/^\[1;36m([А-Яа-я \"\.\-]+)/) ||
+			  rx(sTextLine,/^\[36m([А-Яа-я \"\.\-]+)/) ) && !this.roomLook /*&& this.firstLine*/){
+			player.roomname = result[1];
+			// logInFile(sTextLine);
+			
+			// евент на отображение комнаты
+			sTextLine = onRoom( sTextLine );
+			this.roomLook = true;
+			this.roomLineType = 0;
+			this.numInRoom = 2;
+			return sTextLine;
+		}
+		
+		if (rx(sTextLine,/^Здесь темно.../) && !this.roomLook /*&& this.firstLine*/){
+			player.roomname = "Здесь темно...";
+			
+			// евент на отображение комнаты
+			sTextLine = onRoom( sTextLine );
+			this.roomLook = true;
+			this.roomLineType = 0;
+			this.numInRoom = 2;
+			return sTextLine;
+		}
+		
+		// разбор моба
+		if ((rx(sTextLine,/^\[35m([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook) || 
+			(rx(sTextLine,/^\[1;35m([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook) ||
+			(rx(sTextLine,/^([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook && this.roomLineType==2))
+		{			
+			// евент на моба
+			sTextLine = onRoomMob( sTextLine , this.numInRoom );
+			this.roomLineType = 2;
+			this.numInRoom++;
+			return sTextLine;
+		}	
+
+		// разбор чармиса
+		if ((rx(sTextLine,/^\[31m\(очарован\)([А-Яа-я \-\.\,]+)/) && this.roomLook) || 
+			(rx(sTextLine,/^\[1;31m\(очарован\)([А-Яа-я \-\.\,]+)/) && this.roomLook) ||
+			(rx(sTextLine,/^\(очарован\)([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook && this.roomLineType==3))
+		{			
+			// евент на чармиса
+			sTextLine = onRoomPlayer( sTextLine , this.numInRoom );
+			this.roomLineType = 3;
+			this.numInRoom++;
+			return sTextLine;
+		}	
+		
+		// разбор игрока
+		if ((rx(sTextLine,/^\[31m([А-Яа-я \-\.\,]+)/) && this.roomLook) || 
+			(rx(sTextLine,/^\[1;31m([А-Яа-я \-\.\,]+)/) && this.roomLook) ||
+			(rx(sTextLine,/^([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook && this.roomLineType==3))
+		{			
+			// евент на игрока
+			sTextLine = onRoomPlayer( sTextLine , this.numInRoom );
+			this.roomLineType = 3;
+			this.numInRoom++;
+			return sTextLine;
+		}			
+		
+		// разбор согрупника
+		if ((rx(sTextLine,/^\[36m([А-Яа-я \-\.\,]+)/) && this.roomLook) || 
+			(rx(sTextLine,/^\[0;36m([А-Яа-я \-\.\,]+)/) && this.roomLook) ||
+			(rx(sTextLine,/^([А-Яа-я \-\.\,\(\)]+)/) && this.roomLook && this.roomLineType==4))
+		{			
+			// евент на согрупника
+			sTextLine = onRoomGroupPlayer( sTextLine , this.numInRoom );
+			this.roomLineType = 4;
+			this.numInRoom++;
+			return sTextLine;
+		}		
+		
+		if (sTextLine=="") 	this.firstLine = true;
+		else 				this.firstLine = false;
+		
+		// разбор статуса
+		if (rx(sLine,promptStatus)){
+			player.hp = result[1];
+			player.mp = result[2];
+			player.vp = result[3];
+			player.xexp = result[4];
+			player.gold = result[5];
+			player.exits = result[6];
+			player.isBattle = false;
+			//jmc.showme( color(1,36) + "есь статус хп:"+player.hp );
+			
+			if (player.maxhp < player.hp) player.maxhp = player.hp;
+			
+			sTextLine = onStatus( sTextLine, this.roomLook );
+			
+			this.firstLine = true;
+			this.roomLook = false;
+			this.lookPacket = false;
+		}
+		
+		// разбор боевого статуса
+		if (rx(sLine,promptStatusBattle)){
+			player.hp = result[1];
+			player.mp = result[2];
+			player.vp = result[3];
+			player.xexp = result[4];
+			player.gold = result[5];
+			// чары
+			player.name = result[6];
+			player.battleTargName = result[8];
+			player.exits = result[10];
+			player.isBattle = true;
+			//jmc.showme( color(1,36) + "есь боевой статус враг:"+player.battleTargName );
+
+			
+			
+			sTextLine = onStatus( sTextLine, this.roomLook );
+			
+			this.firstLine = true;
+			this.roomLook = false;
+			this.lookPacket = false;			
+		}
+				
+		return sTextLine;
+	}
+}
+
+modules.push(new MudParseModule());

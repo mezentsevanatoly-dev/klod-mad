@@ -1,0 +1,61 @@
+{
+ "чящеры": {
+  "title": "Селение человекоящеров",
+  "levels": "18-22",
+  "glory": 50,
+  "botp": "C:\\Users\\User\\Desktop\\Клод мад\\mudbot\\areas\\routes\\ЧЯщеры.botp",
+  "mobs": "C:\\Users\\User\\Desktop\\мад\\БОТ ЧВЫРЛА\\areas\\УдалитьПослеОбкатки\\ОбкататьСлаву\\рр2_слЧЯщеры_mob.csv",
+  "outer": "109028",
+  "create": "обл соз восток",
+  "grp": "обл с в",
+  "lvls": [
+   "+3",
+   "+2",
+   "+1",
+   ""
+  ],
+  "first": 0
+ },
+ "башня_магов": {
+  "title": "Башня магов",
+  "levels": "24-28",
+  "glory": 50,
+  "botp": "C:\\Users\\User\\Desktop\\Клод мад\\mudbot\\areas\\routes\\БМ_руками.botp",
+  "mobs": "C:\\Users\\User\\Desktop\\мад\\БОТ ЧВЫРЛА\\areas\\рр5_БМ_mob.csv",
+  "outer": "100018",
+  "create": "обл соз запад",
+  "grp": "обл с з",
+  "lvls": [
+   "+2",
+   "+1",
+   ""
+  ],
+  "city": "Город Элендор",
+  "city_key": "элен",
+  "pre": [],
+  "first": 0,
+  "botp_chvyrla": "C:\\Users\\User\\Desktop\\мад\\БОТ ЧВЫРЛА\\areas\\рр5_БМ.botp",
+  "notes": "маршрут записан за пользователем руками 01.11.2026 (95 комнат, ~3.5 мин); см. areas/routes/notes.md"
+ },
+ "затерянный_остров": {
+  "title": "Затерянный остров",
+  "levels": "15-25",
+  "glory": 50,
+  "botp": "C:\\Users\\User\\Desktop\\Клод мад\\mudbot\\areas\\routes\\остров_полный.botp",
+  "mobs": "C:\\Users\\User\\Desktop\\Клод мад\\mudbot\\areas\\routes\\остров_mob.csv",
+  "outer": "100124",
+  "create": "обл соз север",
+  "grp": "обл с с",
+  "lvls": [
+   "+3",
+   "+2",
+   "+1",
+   ""
+  ],
+  "city": "Город Элендор",
+  "city_key": "элен",
+  "pre": [],
+  "first": 0,
+  "notes": "сценарий areas/routes/остров_полный.txt; повышенной сложности у зоны нет (создаётся без +N); дубли группе: дать 500 хасим, плыть корабль, плыть остров"
+ }
+}

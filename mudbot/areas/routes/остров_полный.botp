@@ -1,0 +1,92 @@
+#if {$MsdpRoomVnum ==100124} {#var SumReset 0}
+#if {$MsdpRoomVnum ==100124} {север}
+#if {$MsdpRoomVnum ==511029} {г да}
+#if {$MsdpRoomVnum ==511029} {дать 500 хасим;гг !дать 500 хасим}
+#if {$MsdpRoomVnum ==511008} {войти портал}
+#if {$MsdpRoomVnum ==511018} {юг}
+#if {$MsdpRoomVnum ==511032} {запад}
+#if {$MsdpRoomVnum ==511022} {запад}
+#if {$MsdpRoomVnum ==511028} {север}
+#if {$MsdpRoomVnum ==511031} {запад}
+#if {$MsdpRoomVnum ==511035} {запад}
+#if {$MsdpRoomVnum ==511056} {запад}
+#if {$MsdpRoomVnum ==511081} {север}
+#if {$MsdpRoomVnum ==511021} {запад}
+#if {$MsdpRoomVnum ==511004} {плыть корабль;гг !плыть корабль}
+#if {$MsdpRoomVnum ==511066} {запад}
+#if {$MsdpRoomVnum ==511065} {север}
+#if {$MsdpRoomVnum ==511057} {запад}
+#if {$MsdpRoomVnum ==511060} {восток}
+#if {$MsdpRoomVnum ==511057} {север}
+#if {$MsdpRoomVnum ==511062} {запад}
+#if {$MsdpRoomVnum ==511069} {восток}
+#if {$MsdpRoomVnum ==511062} {юг}
+#if {$MsdpRoomVnum ==511057} {юг}
+#if {$MsdpRoomVnum ==511065} {восток}
+#if {$MsdpRoomVnum ==511066} {восток}
+#if {$MsdpRoomVnum ==511071} {север}
+#if {$MsdpRoomVnum ==511072} {запад}
+#if {$MsdpRoomVnum ==511059} {отпер сундук}
+#if {$MsdpRoomVnum ==511059} {откр сундук}
+#if {$MsdpRoomVnum ==511059} {вз€ все сундук}
+#if {$MsdpRoomVnum ==511059} {восток}
+#if {$MsdpRoomVnum ==511072} {вниз}
+#if {$MsdpRoomVnum ==511076} {запад}
+#if {$MsdpRoomVnum ==511067} {отпер шкафчик}
+#if {$MsdpRoomVnum ==511067} {откр шкафчик}
+#if {$MsdpRoomVnum ==511067} {восток}
+#if {$MsdpRoomVnum ==511076} {вверх}
+#if {$MsdpRoomVnum ==511072} {юг}
+#if {$MsdpRoomVnum ==511071} {запад}
+#if {$MsdpRoomVnum ==511066} {плыть остров;гг !плыть остров}
+#if {$MsdpRoomVnum ==511004} {восток}
+#if {$MsdpRoomVnum ==511021} {юг}
+#if {$MsdpRoomVnum ==511081} {дать стату€ вдова}
+#if {$MsdpRoomVnum ==511081} {запад}
+#if {$MsdpRoomVnum ==511053} {запад}
+#if {$MsdpRoomVnum ==511054} {вз€ть останки}
+#if {$MsdpRoomVnum ==511054} {восток}
+#if {$MsdpRoomVnum ==511053} {восток}
+#if {$MsdpRoomVnum ==511081} {дать останки вдова}
+#if {$MsdpRoomVnum ==511081} {запад}
+#if {$MsdpRoomVnum ==511053} {запад}
+#if {$MsdpRoomVnum ==511054} {север}
+#if {$MsdpRoomVnum ==511055} {установить статую}
+#if {$MsdpRoomVnum ==511055} {юг}
+#if {$MsdpRoomVnum ==511054} {восток}
+#if {$MsdpRoomVnum ==511053} {восток}
+#if {$MsdpRoomVnum ==511081} {восток}
+#if {$MsdpRoomVnum ==511056} {восток}
+#if {$MsdpRoomVnum ==511035} {север}
+#if {$MsdpRoomVnum ==511036} {восток}
+#if {$MsdpRoomVnum ==511040} {север}
+#if {$MsdpRoomVnum ==511015} {восток}
+#if {$MsdpRoomVnum ==511016} {север}
+#if {$MsdpRoomVnum ==511020} {север}
+#if {$MsdpRoomVnum ==511026} {юг}
+#if {$MsdpRoomVnum ==511020} {восток}
+#if {$MsdpRoomVnum ==511027} {восток}
+#if {$MsdpRoomVnum ==511023} {север}
+#if {$MsdpRoomVnum ==511045} {запад}
+#if {$MsdpRoomVnum ==511010} {север}
+#if {$MsdpRoomVnum ==511013} {юг}
+#if {$MsdpRoomVnum ==511010} {восток}
+#if {$MsdpRoomVnum ==511045} {юг}
+#if {$MsdpRoomVnum ==511023} {запад}
+#if {$MsdpRoomVnum ==511027} {запад}
+#if {$MsdpRoomVnum ==511020} {север}
+#if {$MsdpRoomVnum ==511026} {юг}
+#if {$MsdpRoomVnum ==511020} {юг}
+#if {$MsdpRoomVnum ==511016} {запад}
+#if {$MsdpRoomVnum ==511015} {юг}
+#if {$MsdpRoomVnum ==511040} {запад}
+#if {$MsdpRoomVnum ==511036} {юг}
+#if {$MsdpRoomVnum ==511035} {восток}
+#if {$MsdpRoomVnum ==511031} {юг}
+#if {$MsdpRoomVnum ==511028} {восток}
+#if {$MsdpRoomVnum ==511022} {восток}
+#if {$MsdpRoomVnum ==511032} {север}
+#if {$MsdpRoomVnum ==511018} {войти портал}
+#if {$MsdpRoomVnum ==511008} {восток}
+#if {$MsdpRoomVnum ==511014} {юг}
+#if {$MsdpRoomVnum ==511029} {дать мешочек хасим}

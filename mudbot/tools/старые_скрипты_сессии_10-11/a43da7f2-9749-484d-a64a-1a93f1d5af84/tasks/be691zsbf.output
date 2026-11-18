@@ -1,0 +1,17 @@
+набрано: #scr botCore.enableBot=false
+набрано: #scr botCore.loadZone('гильда12')
+набрано: #scr seekstep=33
+набрано: #scr botCore.waitFlag=false
+набрано: #scr botCore.enableBot=true
+набрано: look краткий
+16:55:22 ## STEP 33 vn=12047 cmd=#if {$MsdpRoomVnum != 12047} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистит
+16:55:22 ## STEP 34 vn=12163 cmd=.триг #if {$MsdpRoomVnum != 12163} {#scr botCore.wait(25);#scr seekstep = seekstep -2;о
+16:55:22 Вы приобрели быструю дощечку. Это обошлось вам в 20000 монет.
+16:55:23 ## STEP 35 vn=12163 cmd=.триг #if {$MsdpRoomVnum != 12163} {#scr botCore.wait(25);#scr seekstep = seekstep -2;о
+16:55:23 Вы очень внимательно начали изучать быструю дощечку...
+16:55:23 Вы овладели умением 'дополнительная атака'.
+16:55:23 ## STEP 36 vn=12163 cmd=.триг #if {$MsdpRoomVnum != 12163} {#scr botCore.wait(25);#scr seekstep = seekstep -2;о
+16:55:24 ## STEP 37 vn=12163 cmd=.триг #if {$MsdpRoomVnum != 12163} {#scr botCore.wait(25);#scr seekstep = seekstep -2;о
+16:55:25 ## STEP 38 vn=12163 cmd=.триг #if {$MsdpRoomVnum != 12163} {#scr botCore.wait(25);#scr seekstep = seekstep -2;о
+
+[exited with code 0]

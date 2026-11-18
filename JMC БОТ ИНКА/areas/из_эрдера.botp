@@ -1,0 +1,66 @@
+.триг #scr botCore.BotInZone = false
+#if {$MsdpRoomVnum != 141167} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141167} {восток}
+#if {$MsdpRoomVnum != 141141} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141141} {вверх}
+#if {$MsdpRoomVnum != 141149} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141149} {север}
+#if {$MsdpRoomVnum != 141151} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141151} {север}
+#if {$MsdpRoomVnum != 141153} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141153} {вниз}
+#if {$MsdpRoomVnum != 141029} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141029} {север}
+#if {$MsdpRoomVnum != 141062} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141062} {север}
+#if {$MsdpRoomVnum != 141063} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141063} {север}
+#if {$MsdpRoomVnum != 141064} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141064} {восток}
+#if {$MsdpRoomVnum != 141065} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141065} {восток}
+#if {$MsdpRoomVnum != 141066} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 141066} {север}
+юг
+восток
+юг
+юг
+юг
+восток
+восток
+восток
+юг
+юг
+юг
+юг
+вниз
+юг
+юг
+юг
+юг
+вверх
+вверх
+юг
+.триг войт
+.пауза 80
+.триг куп 1
+.пауза 50
+север
+север
+север
+запад
+север
+запад
+север
+запад
+запад
+запад
+юг
+запад
+.триг войт
+.пауза 80
+запад
+запад
+запад
+запад
+север
+север
+запад
+запад
+запад
+запад
+юг
+запад
+запад
+север
+.триг #scr ClaudeLog.noBlind = false
+.триг #group enable zoff

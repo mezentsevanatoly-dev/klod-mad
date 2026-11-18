@@ -1,0 +1,26 @@
+#if {$MsdpRoomVnum ==511081} {#var SumReset 0}
+#if {$MsdpRoomVnum ==511081} {север}
+#if {$MsdpRoomVnum ==511021} {запад}
+#if {$MsdpRoomVnum ==511004} {плыть корабль;гг !плыть корабль}
+#if {$MsdpRoomVnum ==511066} {запад}
+#if {$MsdpRoomVnum ==511065} {север}
+#if {$MsdpRoomVnum ==511057} {запад}
+#if {$MsdpRoomVnum ==511060} {восток}
+#if {$MsdpRoomVnum ==511057} {юг}
+#if {$MsdpRoomVnum ==511065} {восток}
+#if {$MsdpRoomVnum ==511066} {восток}
+#if {$MsdpRoomVnum ==511071} {север}
+#if {$MsdpRoomVnum ==511072} {запад}
+#if {$MsdpRoomVnum ==511059} {отпер сундук;гг !отпер сундук}
+#if {$MsdpRoomVnum ==511059} {откр сундук;гг !откр сундук}
+#if {$MsdpRoomVnum ==511059} {взя все сундук;гг !взя все сундук}
+#if {$MsdpRoomVnum ==511059} {восток}
+#if {$MsdpRoomVnum ==511072} {вниз}
+#if {$MsdpRoomVnum ==511076} {запад}
+#if {$MsdpRoomVnum ==511067} {отпер шкафчик;гг !отпер шкафчик}
+#if {$MsdpRoomVnum ==511067} {откр шкафчик;гг !откр шкафчик}
+#if {$MsdpRoomVnum ==511067} {восток}
+#if {$MsdpRoomVnum ==511076} {вверх}
+#if {$MsdpRoomVnum ==511072} {юг}
+#if {$MsdpRoomVnum ==511071} {запад}
+#if {$MsdpRoomVnum ==511066} {плыть;гг !плыть}

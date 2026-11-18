@@ -1,0 +1,9 @@
+#if {$MsdpRoomVnum ==511076} {#var SumReset 0}
+#if {$MsdpRoomVnum ==511076} {запад}
+#if {$MsdpRoomVnum ==511067} {отпер шкафчик}
+#if {$MsdpRoomVnum ==511067} {откр шкафчик}
+#if {$MsdpRoomVnum ==511067} {восток}
+#if {$MsdpRoomVnum ==511076} {вверх}
+#if {$MsdpRoomVnum ==511072} {юг}
+#if {$MsdpRoomVnum ==511071} {запад}
+#if {$MsdpRoomVnum ==511066} {плыть остров;гг !плыть остров}

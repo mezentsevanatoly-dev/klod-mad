@@ -1,0 +1,11 @@
+stopped 5904
+stopped 5712
+pid=14784
+02:12:48 === этап школа: лвл 1, цель 4 ===
+02:12:49 travel эл_склад ok
+02:12:49 охота school pid 5712 start2 4
+02:23:11 === этап школа: лвл 1, цель 4 ===
+02:23:15 travel эл_склад ok
+02:23:15 охота school pid 3716 start2 4
+02:24:00 охота school -> level
+02:24:03 охота school2 pid 10912 start2 5 --here --noentry

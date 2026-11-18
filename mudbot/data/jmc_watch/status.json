@@ -1,0 +1,1 @@
+{"time": "23:38:57", "bot_on": true, "zone": "гильда17", "total": 34, "step": 130, "vn": "128035", "cmd": "#if {$MsdpRoomVnum != 128035} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 128035} {запад}", "kills": 194, "hp": "219H 170M 147V 52989X", "idle_progress": 22, "idle_log": 0, "stall": false, "nolog": false}

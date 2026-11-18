@@ -1,0 +1,12 @@
+#if {$MsdpRoomVnum ==511026} {#var SumReset 0}
+#if {$MsdpRoomVnum ==511026} {юг}
+#if {$MsdpRoomVnum ==511020} {юг}
+#if {$MsdpRoomVnum ==511016} {запад}
+#if {$MsdpRoomVnum ==511015} {юг}
+#if {$MsdpRoomVnum ==511040} {запад}
+#if {$MsdpRoomVnum ==511036} {юг}
+#if {$MsdpRoomVnum ==511035} {восток}
+#if {$MsdpRoomVnum ==511031} {юг}
+#if {$MsdpRoomVnum ==511028} {восток}
+#if {$MsdpRoomVnum ==511022} {восток}
+#if {$MsdpRoomVnum ==511032} {север}

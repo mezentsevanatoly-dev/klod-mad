@@ -1,0 +1,5 @@
+22:27:24 ## STEP 23 vn=128003 cmd=#if {$MsdpRoomVnum != 128003} {#scr 
+22:27:25 ## STEP 24 vn=128004 cmd=#if {$MsdpRoomVnum != 128004} {#scr 
+22:27:40
+
+[exited with code 0]

@@ -1,0 +1,17 @@
+[15:26:31] BOT_STOP: BOT_STOP step=32/228
+    15:26:27 уничтожившего почти весь мир.
+    15:26:27 180H 87M 84V 965X 0C Вых:СВЗ> 
+    15:26:29 Среди камыша
+    15:26:29 [ Exits: N E W ]
+    15:26:29 180H 87M 84V 965X 0C Вых:СВЗ> 
+    15:26:29 ## STEP 32 vn=104044 cmd=.триг #scr botCore.BotInZone = true
+    15:26:29 Среди камыша
+    15:26:29 [ Exits: N E W ]
+    15:26:29 180H 87M 84V 965X 0C Вых:СВЗ> 
+    15:26:29 ## STEP 33 vn=104044 cmd=#if {$MsdpRoomVnum != 104043} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 104043} {юг}
+    15:26:29 Очередь команд очищена.
+    15:26:29 180H 87M 84V 965X 0C Вых:СВЗ> 
+    15:26:30 >> .бот стоп
+    15:26:30 ## BOT_STOP step=32/228
+
+[exited with code 0]

@@ -1,0 +1,27 @@
+#hot {DIV} {взя все все.труп; взя все} {default}
+#hot {MUL} {гг !очистить;  гг !вст; гг !од все} {default}
+#hot {F1} {гг !к обря.очи} {default}
+#hot {F2} {гг !к сло.жи} {default}
+#hot {F3} {гг !к слов.свет} {default}
+#hot {F5} {гг !сумм} {default}
+#hot {F6} {гг !спать} {default}
+#hot {F7} {кар просн; зор просн} {default}
+#hot {F8} {гг !просн} {default}
+#hot {F9} {#z} {default}
+#hot {F10} {#con localhost 5556} {default}
+#hot {NUM7} {вниз} {default}
+#hot {NUM8} {север} {default}
+#hot {NUM9} {вверх} {default}
+#hot {MIN} {очистить; вст; огл} {default}
+#hot {NUM4} {запад} {default}
+#hot {NUM5} {юг} {default}
+#hot {NUM6} {восток} {default}
+#hot {ADD} {гг !фраг; гг !пом; пом} {default}
+#hot {NUM1} {смотреть} {default}
+#hot {NUM2} {к землетряс} {default}
+#hot {NUM3} {тр; мс; мв} {default}
+#hot {NUM0} {гр} {default}
+#hot {F11} {#con localhost 6669} {default}
+#hot {F12} {#connect sowmud.ru 5555} {default}
+#hot {Shift+`} {очистить; вст; мол тут} {default}
+# Хоткеи из «жабы» (JMC) пользователя, присланы 01.11.2026 — «не все, но многие»; в tools/manual_pad.py перенесены, кроме F9, F10-F12.

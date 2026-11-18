@@ -1,0 +1,151 @@
+.триг #scr botCore.BotInZone = false
+#if {$MsdpRoomVnum != 115092} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115092} {запад}
+#if {$MsdpRoomVnum != 115089} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115089} {вниз}
+#if {$MsdpRoomVnum != 115050} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115050} {север}
+#if {$MsdpRoomVnum != 115049} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115049} {север}
+#if {$MsdpRoomVnum != 115043} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115043} {восток}
+#if {$MsdpRoomVnum != 115044} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115044} {восток}
+#if {$MsdpRoomVnum != 115045} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115045} {восток}
+#if {$MsdpRoomVnum != 115039} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115039} {север}
+#if {$MsdpRoomVnum != 115038} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115038} {север}
+#if {$MsdpRoomVnum != 115037} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115037} {север}
+#if {$MsdpRoomVnum != 115025} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115025} {север}
+#if {$MsdpRoomVnum != 115024} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115024} {север}
+#if {$MsdpRoomVnum != 115022} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115022} {север}
+#if {$MsdpRoomVnum != 115023} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 115023} {север}
+#if {$MsdpRoomVnum != 122001} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122001} {север}
+#if {$MsdpRoomVnum != 122002} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122002} {север}
+#if {$MsdpRoomVnum != 122003} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122003} {восток}
+#if {$MsdpRoomVnum != 122004} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122004} {север}
+#if {$MsdpRoomVnum != 122005} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122005} {север}
+#if {$MsdpRoomVnum != 122006} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122006} {восток}
+#if {$MsdpRoomVnum != 122007} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122007} {север}
+#if {$MsdpRoomVnum != 122008} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122008} {север}
+#if {$MsdpRoomVnum != 122010} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122010} {запад}
+#if {$MsdpRoomVnum != 122009} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122009} {север}
+#if {$MsdpRoomVnum != 122018} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122018} {север}
+#if {$MsdpRoomVnum != 122017} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122017} {север}
+#if {$MsdpRoomVnum != 122015} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122015} {запад}
+#if {$MsdpRoomVnum != 122044} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122044} {запад}
+#if {$MsdpRoomVnum != 122045} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122045} {север}
+#if {$MsdpRoomVnum != 122046} {#scr botCore.wait(25);#scr seekstep = seekstep -2;очистить};#if {$MsdpRoomVnum == 122046} {запад}
+.триг #scr botCore.BotInZone = true
+юг
+восток
+запад
+юг
+юг
+запад
+восток
+север
+север
+запад
+запад
+юг
+север
+запад
+запад
+север
+север
+восток
+запад
+юг
+юг
+запад
+запад
+юг
+юг
+юг
+юг
+запад
+запад
+запад
+восток
+восток
+восток
+север
+север
+север
+север
+запад
+запад
+запад
+запад
+север
+запад
+запад
+запад
+север
+запад
+запад
+восток
+восток
+юг
+восток
+восток
+восток
+юг
+восток
+восток
+восток
+восток
+юг
+юг
+юг
+юг
+юг
+юг
+восток
+запад
+запад
+восток
+север
+север
+запад
+запад
+север
+юг
+восток
+восток
+север
+север
+север
+север
+восток
+восток
+восток
+восток
+восток
+восток
+север
+.триг #scr botCore.BotInZone = false
+восток
+юг
+восток
+восток
+юг
+юг
+юг
+восток
+юг
+юг
+запад
+юг
+юг
+запад
+юг
+юг
+юг
+юг
+юг
+юг
+юг
+юг
+юг
+запад
+запад
+запад
+юг
+юг
+вверх
+восток

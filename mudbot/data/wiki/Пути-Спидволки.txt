@@ -1,0 +1,63 @@
+Пути-Спидволки
+
+Полезные спидволки, для быстрого передвижения по миру.
+
+Спидволки между рентами:<br>
+* #alias {рр1рр2} {2e4s22es8e3s18e2s} {Moving}<br>
+* #alias {рр1рр3} {2e4s22es8e3s31es8es4es6en10e2ne} {Moving}<br>
+* #alias {рр1рр4} {2e4s22es8e3s21e9ne2ne2nw3ne6n2e6ne4nw9nun3w} {Moving}<br>
+* #alias {рр1рр5} {2e4s22es8e3s31es8es4es6en21es6es13e9s8e3n;откр вор;3n3w2ne} {Moving}<br>
+<br>
+* #alias {рр2рр1} {2n18w3n8wn21wnw3n2w} {Moving}<br>
+* #alias {рр2рр3} {2n13es8es4es6en10e2ne} {Moving}<br>
+* #alias {рр2рр4} {2n3e9ne2ne2nw3ne6n2e6ne4nw9nun3w} {Moving}<br>
+* #alias {рр2рр5} {2n13es8es4es6en21es6es13e9s8e3n;откр вор;3n3w2ne} {Moving}<br>
+<br>
+* #alias {рр3рр1} {w2s10ws6wn4wn8wn31w3n8wn21wnw3n2w} {Moving}<br>
+* #alias {рр3рр2} {w2s10ws6wn4wn8wn13w2s} {Moving}<br>
+* #alias {рр3рр4} {w2s10ws6wn4wn8wn10w9ne2ne2nw3ne6n2e6ne4nw9nun3w} {Moving}<br>
+* #alias {рр3рр5} {wss11es6es13e9s8e3n;откр вор;3n3w2ne} {Moving}<br>
+<br>
+* #alias {рр4рр1} {3esd9se4sw9s2w3sw3se2sw2sw9s21w3n8wn21wnw3n2w} {Moving}<br>
+* #alias {рр4рр2} {3esd9se4sw9s2w3sw3se2sw2sw9s3w2s} {Moving}<br>
+* #alias {рр4рр3} {3esd9se4sw9s2w3sw3se2sw2sw9s10es8es4es6en10e2ne} {Moving}<br>
+* #alias {рр4рр5} {3esd9se4sw9s2w3sw3se2sw2sw9s10es8es4es6en21es6es13e9s8e3n;откр вор;3n3w2ne} {Moving}<br>
+<br>
+* #alias {рр5рр1} {w2s3e2s;откр вор;4s8w9n13wn6wn21ws6wn4wn8wn31w3n8wn21wnw3n2w} {Moving}<br>
+* #alias {рр5рр2} {w2s3e2s;откр вор;4s8w9n13wn6wn21ws6wn4wn8wn13w2s} {Moving}<br>
+* #alias {рр5рр3} {w2s3e2s;откр вор;4s8w9n13wn6wn11w2ne} {Moving}<br>
+* #alias {рр5рр4} {w2s3e2s;откр вор;4s8w9n13wn6wn21ws6wn4wn8wn10w9ne2ne2nw3ne6n2e6ne4nw9nun3w} {Moving}<br>
+<br>
+* #alias {рр1ррА} {2e4s16e8nw5ne4nwnw2nw2n3es3e3n;#2 раздвинуть поросль;3n2wunwdw6n3enu} {Moving}<br>
+* #alias {рр2ррА} {2n18w3n8wn6w8nw5ne4nwnw2nw2n3es3e3n;#2 раздвинуть поросль;3n2wunwdw6n3enu} {Moving}<br>
+* #alias {рр3ррА} {w2s10ws6wn4wn8wn31w3n8wn6w8nw5ne4nwnw2nw2n3es3e3n;#2 раздвинуть поросль;3n2wunwdw6n3enu} {Moving}<br>
+* #alias {рр4ррА} {3esd9se4sw9s2w3sw3se2sw2sw9s21w3n8wn6w8nw5ne4nwnw2nw2n3es3e3n;#2 раздвинуть поросль;3n2wunwdw6n3enu} {Moving}<br>
+* #alias {рр5ррА} {w2s3e2s;откр вор;4s8w9n13wn6wn21ws6wn4wn8wn31w3n8wn6w8nw5ne4nwnw2nw2n3es3e3n;#2 раздвинуть поросль;3n2wunwdw6n3enu} {Moving}\
+<br>
+Спидволки между центральными площадями (ЦП):<br>
+* #alias {цп1цп2} {6e6e6eeeees6eeesss6e6e6eee} {Moving}<br>
+* #alias {цп2цп1} {20w3n8wn22w} {Moving}<br>
+* #alias {цп2цп3} {10es8es4es6en10e} {Moving}<br>
+* #alias {цп3цп2} {10ws6wn4wn8wn10w} {Moving}<br>
+* #alias {цп2цп4} {9ne2ne2nw3ne6n2e6ne4nw9nun} {Moving}<br>
+* #alias {цп4цп2} {sd9se4sw9s2w3sw3se2sw2sw9s} {Moving}<br>
+<br>
+Спидволки для Перекрестка миров:<br>
+* ##### порталы в мир Элендор #####<br>
+* #ali {пор1} {3nwnwn3wsw} {Moving}<br>
+* #ali {порэле} {пор1} {Moving}<br>
+* #ali {пор2} {3nwnw3nen3es2es} {Moving}<br>
+* #ali {поргео} {пор2} {Moving}<br>
+* #ali {пор3} {3nwnw3nen2e2ne3nwn3wsw3s} {Moving}<br>
+* #ali {порфел} {пор3} {Moving}<br>
+* #ali {пор4} {3nwnw3nen2e2nen4e2sw} {Moving}<br>
+* #ali {пороги} {пор4} {Moving}<br>
+* #ali {порстэ} {3nwnw3nen2e2ne3nw2nen3enen} {Moving}<br>
+* #ali {порарт} {3nwnw3n2wnwnw3ne} {Moving}<br>
+* #ali {поршиа} {3nwnw3n2wnwnw6nen2en} {Moving}<br><br>
+* ##### порталы в мир Видрир #####<br>
+* #ali {порвид} {3wn3wsw4ses} {Moving}<br>
+* #ali {поргал} {3wn3wsws2wnw4nen} {Moving}<br>
+* #ali {порэрд} {3wn3wsws2wsws3wnw2n} {Moving}<br><br>
+* ##### порталы в мир Средиземье #####<br>
+* #ali {поррив} {3es2es3enen3esese3sws3wnw} {Moving}<br>
